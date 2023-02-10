@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="actual_zombie_siege"
+version="1.0.0"
+displayName="Zombies Actually Siege"
+credits="(well I think they are better)"
+displayURL="https://mcreator.net"
+authors="nojustgavin"
+description='''
+Better Sieges
+'''
+
+[[dependencies.actual_zombie_siege]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+
