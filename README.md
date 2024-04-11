@@ -1,9 +1,8 @@
 * The above code is not actually up to date, I've been having difficulties uploading it. The below wiki is up to date with the latest version.
 
 # Zombies Actually Siege Forge 1.18.2
-Zombies Actually Siege is a simple mod that improves the experience of Zombie Sieges, by adding some extra normal zombies with armor and a few special attributes.
-When a Zombie Siege occurs, a random configurable number of "soldiers" will spawn (depending on difficulty) as well as a "captain" riding a skeleton horse, and occasionally a "deputy" for the captain as well.
-All special siege mobs have a special loot table which includes iron and emeralds. Once all siege mobs have been killed, if there is still a villager alive in the village, you will gain Hero Of The Village for three minutes and quite a bit of XP. If there is no villager present, you will just get a little more XP than you usually do for killing normal zombies, and no Hero Of The Village.
+Zombies Actually Siege is a simple mod that improves the experience of Zombie Sieges, a vanilla feature the occurs in a village at midnight occasionally, by adding some extra normal zombies with armor and a few special attributes.
+When a Zombie Siege occurs, a random configurable number of "soldiers" will spawn (depending on difficulty) as well as a "captain" riding a skeleton horse, and occasionally a "deputy" for the captain as well. Each special mob will drop some loot from a loot table, featuring things like iron, emeralds, and diamonds (by default). You can make a zombie siege happen yourself by ringing a bell while holding some rotten flesh during the night. You can also do this in other dimensions to summon themed unnatural sieges with special loot.
 ## Config Quick Wiki
 ### Configuring Spawning
 
