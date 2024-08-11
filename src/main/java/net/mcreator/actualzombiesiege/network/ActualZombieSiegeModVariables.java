@@ -24,8 +24,7 @@ import java.util.function.Supplier;
 public class ActualZombieSiegeModVariables {
 	@SubscribeEvent
 	public static void init(FMLCommonSetupEvent event) {
-		ActualZombieSiegeMod.addNetworkMessage(SavedDataSyncMessage.class, SavedDataSyncMessage::buffer, SavedDataSyncMessage::new,
-				SavedDataSyncMessage::handler);
+		ActualZombieSiegeMod.addNetworkMessage(SavedDataSyncMessage.class, SavedDataSyncMessage::buffer, SavedDataSyncMessage::new, SavedDataSyncMessage::handler);
 	}
 
 	@Mod.EventBusSubscriber
@@ -36,11 +35,9 @@ public class ActualZombieSiegeModVariables {
 				SavedData mapdata = MapVariables.get(event.getPlayer().level);
 				SavedData worlddata = WorldVariables.get(event.getPlayer().level);
 				if (mapdata != null)
-					ActualZombieSiegeMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()),
-							new SavedDataSyncMessage(0, mapdata));
+					ActualZombieSiegeMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()), new SavedDataSyncMessage(0, mapdata));
 				if (worlddata != null)
-					ActualZombieSiegeMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()),
-							new SavedDataSyncMessage(1, worlddata));
+					ActualZombieSiegeMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()), new SavedDataSyncMessage(1, worlddata));
 			}
 		}
 
@@ -49,8 +46,7 @@ public class ActualZombieSiegeModVariables {
 			if (!event.getPlayer().level.isClientSide()) {
 				SavedData worlddata = WorldVariables.get(event.getPlayer().level);
 				if (worlddata != null)
-					ActualZombieSiegeMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()),
-							new SavedDataSyncMessage(1, worlddata));
+					ActualZombieSiegeMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayer) event.getPlayer()), new SavedDataSyncMessage(1, worlddata));
 			}
 		}
 	}
@@ -95,6 +91,7 @@ public class ActualZombieSiegeModVariables {
 	public static class MapVariables extends SavedData {
 		public static final String DATA_NAME = "actual_zombie_siege_mapvars";
 		public double activeSiegeCount = 0;
+		public double ticksSinceSiege = 0;
 
 		public static MapVariables load(CompoundTag tag) {
 			MapVariables data = new MapVariables();
@@ -104,11 +101,13 @@ public class ActualZombieSiegeModVariables {
 
 		public void read(CompoundTag nbt) {
 			activeSiegeCount = nbt.getDouble("activeSiegeCount");
+			ticksSinceSiege = nbt.getDouble("ticksSinceSiege");
 		}
 
 		@Override
 		public CompoundTag save(CompoundTag nbt) {
 			nbt.putDouble("activeSiegeCount", activeSiegeCount);
+			nbt.putDouble("ticksSinceSiege", ticksSinceSiege);
 			return nbt;
 		}
 
@@ -122,8 +121,7 @@ public class ActualZombieSiegeModVariables {
 
 		public static MapVariables get(LevelAccessor world) {
 			if (world instanceof ServerLevelAccessor serverLevelAcc) {
-				return serverLevelAcc.getLevel().getServer().getLevel(Level.OVERWORLD).getDataStorage().computeIfAbsent(e -> MapVariables.load(e),
-						MapVariables::new, DATA_NAME);
+				return serverLevelAcc.getLevel().getServer().getLevel(Level.OVERWORLD).getDataStorage().computeIfAbsent(e -> MapVariables.load(e), MapVariables::new, DATA_NAME);
 			} else {
 				return clientSide;
 			}

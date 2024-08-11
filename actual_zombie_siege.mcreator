@@ -8,6 +8,9 @@
       "locked_code": false,
       "registry_name": "zombie_siege_occurs",
       "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/ZombieSiegeOccursProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "x",
@@ -34,7 +37,12 @@
       "sortid": 2,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "zombie_siege_command"
+      "registry_name": "zombie_siege_command",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/command/ForceSiegeCommand.java"
+        ]
+      }
     },
     {
       "name": "SiegeMobDeathDetect",
@@ -44,6 +52,9 @@
       "locked_code": false,
       "registry_name": "siege_mob_death_detect",
       "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/SiegeMobDeathDetectProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "entity",
@@ -74,7 +85,12 @@
       "sortid": 8,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "complete_siege"
+      "registry_name": "complete_siege",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/actual_zombie_siege/advancements/complete_siege.json"
+        ]
+      }
     },
     {
       "name": "FileMaker",
@@ -84,7 +100,15 @@
       "locked_code": false,
       "registry_name": "file_maker",
       "metadata": {
-        "dependencies": []
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/FileMakerProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       }
     },
     {
@@ -96,6 +120,9 @@
       "registry_name": "return_config",
       "metadata": {
         "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/ReturnConfigProcedure.java"
+        ],
         "dependencies": [
           {
             "name": "x",
@@ -117,12 +144,119 @@
       }
     },
     {
-      "name": "LoseSiege",
-      "type": "achievement",
-      "sortid": 11,
+      "name": "RandomSiegeNoVillage",
+      "type": "procedure",
+      "sortid": 12,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "lose_siege"
+      "registry_name": "random_siege_no_village",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/RandomSiegeNoVillageProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "UpdateTicksSinceSiege",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "update_ticks_since_siege",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/UpdateTicksSinceSiegeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "IsEnd",
+      "type": "tag",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "is_end",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/tags/worldgen/biome/is_end.json"
+        ]
+      }
+    },
+    {
+      "name": "UnnaturalSiege",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "unnatural_siege",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/actualzombiesiege/procedures/UnnaturalSiegeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ValidSiegers",
+      "type": "tag",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "valid_siegers",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/minecraft/tags/entity_types/valid_siegers.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -137,15 +271,19 @@
       "type": "number",
       "scope": "map",
       "value": "0"
+    },
+    {
+      "name": "ticksSinceSiege",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [],
   "language_map": {
     "en_us": {
       "advancements.complete_siege.descr": "Defeat a Zombie Siege",
-      "advancements.complete_siege.title": "Not Tonight",
-      "advancements.lose_siege.title": "But At What Cost?",
-      "advancements.lose_siege.descr": "Defeat a Zombie Siege with no Villagers in the area"
+      "advancements.complete_siege.title": "Not Tonight"
     }
   },
   "foldersRoot": {
@@ -155,7 +293,7 @@
   "workspaceSettings": {
     "modid": "actual_zombie_siege",
     "modName": "Zombies Actually Siege",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Better Sieges",
     "author": "nojustgavin",
     "websiteURL": "https://mcreator.net",
@@ -171,5 +309,5 @@
     "modElementsPackage": "net.mcreator.actualzombiesiege",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202200348217
+  "mcreatorVersion": 202300110610
 }

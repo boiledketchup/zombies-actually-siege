@@ -1,0 +1,78 @@
+{
+  "_fv": 39,
+  "_type": "tag",
+  "definition": {
+    "type": "Entities",
+    "items": [],
+    "blocks": [],
+    "functions": [],
+    "entities": [
+      {
+        "value": "EntityBlaze"
+      },
+      {
+        "value": "EntityCaveSpider"
+      },
+      {
+        "value": "EntityCreeper"
+      },
+      {
+        "value": "EntityDrowned"
+      },
+      {
+        "value": "EntityEnderman"
+      },
+      {
+        "value": "EntityEvoker"
+      },
+      {
+        "value": "EntityHusk"
+      },
+      {
+        "value": "EntityIllusionIllager"
+      },
+      {
+        "value": "EntityPhantom"
+      },
+      {
+        "value": "EntityPiglin"
+      },
+      {
+        "value": "EntityPiglinBrute"
+      },
+      {
+        "value": "EntityPillager"
+      },
+      {
+        "value": "EntityRavager"
+      },
+      {
+        "value": "EntityShulker"
+      },
+      {
+        "value": "EntitySkeleton"
+      },
+      {
+        "value": "EntityStray"
+      },
+      {
+        "value": "EntityVindicator"
+      },
+      {
+        "value": "EntityWitch"
+      },
+      {
+        "value": "EntityWitherSkeleton"
+      },
+      {
+        "value": "EntityZombie"
+      },
+      {
+        "value": "EntityPigZombie"
+      }
+    ],
+    "biomes": [],
+    "name": "valid_siegers",
+    "namespace": "minecraft"
+  }
+}

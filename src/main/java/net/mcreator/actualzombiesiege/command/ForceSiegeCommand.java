@@ -13,7 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.core.Direction;
 import net.minecraft.commands.Commands;
 
-import net.mcreator.actualzombiesiege.procedures.ZombieSiegeOccursProcedure;
+import net.mcreator.actualzombiesiege.procedures.UnnaturalSiegeProcedure;
 
 @Mod.EventBusSubscriber
 public class ForceSiegeCommand {
@@ -29,7 +29,7 @@ public class ForceSiegeCommand {
 				entity = FakePlayerFactory.getMinecraft(world);
 			Direction direction = entity.getDirection();
 
-			ZombieSiegeOccursProcedure.execute(world, x, y, z);
+			UnnaturalSiegeProcedure.execute(world, x, y, z, entity);
 			return 0;
 		}));
 	}
